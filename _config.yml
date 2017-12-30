@@ -13,7 +13,7 @@ banner: /i/mountains.svg                    # used as background in site header
 url: http://solana.ryanlue.com              # used by plugins to generate feed.xml and sitemap.xml
 baseurl: ''                                 # prepended to all absolute filepaths
 repo: https://github.com/rlue/jekyll-solana # used in footer
-markdown: dramdown                          # github pages only supports kramdown as a Markdown processor
+markdown: kramdown                          # github pages only supports kramdown as a Markdown processor
 
 # Objects listed here will appear in the main nav menu.
 # Exceeding four items may cause problems on the desktop (>900px wide) layout.
