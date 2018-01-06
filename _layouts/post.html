@@ -42,3 +42,6 @@ layout: default
     <a href="{{ page.reddit_post }}" target="_blank" class="comments__cta">{{ call_to_action }}</a>
   </section>
 {% endif %}
+{% if site.intensedebate_comments %}
+	{% include intensedebate-comments.html %}
+{% endif %}

@@ -14,6 +14,7 @@ url: http://solana.ryanlue.com              # used by plugins to generate feed.x
 baseurl: ''                                 # prepended to all absolute filepaths
 repo: https://github.com/rlue/jekyll-solana # used in footer
 markdown: kramdown
+intensedebate_comments: true
 kramdown:
   input: GFM                          # github pages only supports kramdown as a Markdown processor
 
