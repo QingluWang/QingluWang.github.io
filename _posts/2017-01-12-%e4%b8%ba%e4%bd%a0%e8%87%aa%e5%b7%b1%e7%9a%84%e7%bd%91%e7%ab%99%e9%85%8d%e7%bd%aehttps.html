@@ -1,0 +1,61 @@
+---
+layout: post
+status: publish
+published: true
+title: "配置HTTPS"
+author:
+  display_name: Garlic
+  login: wangqinglu
+  email: 1119543546@qq.com
+  url: ''
+author_login: wangqinglu
+author_email: 1119543546@qq.com
+wordpress_id: 137
+wordpress_url: http://blog.wql970522.top/?p=137
+date: '2017-01-12 20:40:53 +0800'
+date_gmt: '2017-01-12 12:40:53 +0800'
+categories:
+- "服务器"
+tags: []
+comments: []
+---
+<p>Https就是在http协议的基础上加入了SSL层，使得客户端与服务端之间通信更加安全</p>
+<p>一、需要的证书和密钥</p>
+<p>.crt文件</p>
+<p>.key文件</p>
+<p>二、申请证书和密钥</p>
+<p>申请SSL证书一般需要收费，当然也有免费的，可以去startssl.com申请</p>
+<p>一、域名认证</p>
+<p><img class="alignnone wp-image-139" src="http://blog.wql970522.top/wp-content/uploads/2017/01/域名认证-300x142.png" alt="" width="854" height="404" /></p>
+<p>&nbsp;</p>
+<p>一般它会发一封带着verification code的邮件到你指定的邮箱里，填好该verification code即可</p>
+<p>二、提交CSR并获取证书</p>
+<p><img class="alignnone wp-image-141" src="http://blog.wql970522.top/wp-content/uploads/2017/01/提交CSR-1-300x160.png" alt="" width="844" height="450" /></p>
+<p>这里我用它的startcomtool.exe来生成CSR</p>
+<p><img class="alignnone wp-image-142" src="http://blog.wql970522.top/wp-content/uploads/2017/01/生成CSR-300x203.png" alt="" width="831" height="562" /></p>
+<p>点击Generate CSR，选择一个位置保存生成的.csr文件和.key文件(例如，temp.csr和temp.key)</p>
+<p>之后copy CSR content的内容至submit CSR的文本框中</p>
+<p><img class="alignnone wp-image-143" src="http://blog.wql970522.top/wp-content/uploads/2017/01/得到证书-300x144.png" alt="" width="813" height="390" /></p>
+<p>点击here下载一个压缩包文件</p>
+<p>因为我用apache做web服务器，所以只需要提取ApacheServer里的域名.crt文件(例如temp.crt)</p>
+<p>三、部署证书</p>
+<p>上传前面的两个文件temp.key和temp.crt至一个指定目录(例如/temp)</p>
+<p>在此以Apache2.4.23版本为例</p>
+<p>1、安装mod-ssl openssl</p>
+<p>2、修改apache目录下conf/extra/httpd-ssl.conf文件</p>
+<p>ServerName 你的域名</p>
+<p>SSLCertificateFile "/temp/temp.crt"</p>
+<p>SSLCertificateKeyFile "/temp/temp.key"</p>
+<p><Directory 网站路径><br />
+AllowOverride All<br />
+Require all granted<br />
+SSLOptions +StdEnvVars<br />
+</Directory></p>
+<p>3、修改apache目录下conf/httpd.conf文件</p>
+<p>LoadModule ssl_module modules/mod_ssl.so</p>
+<p>LoadModule socache_shmcb_module modules/mod_socache_shmcb.so</p>
+<p>Include conf/extra/httpd-ssl.conf</p>
+<p>4、重启apache生效</p>
+<p>service httpd restart</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

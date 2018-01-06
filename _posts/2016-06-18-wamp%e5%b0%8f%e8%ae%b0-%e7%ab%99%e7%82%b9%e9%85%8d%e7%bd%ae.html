@@ -1,0 +1,67 @@
+---
+layout: post
+status: publish
+published: true
+title: WAMP多站点配置
+author:
+  display_name: Garlic
+  login: wangqinglu
+  email: 1119543546@qq.com
+  url: ''
+author_login: wangqinglu
+author_email: 1119543546@qq.com
+wordpress_id: 89
+wordpress_url: http://wql970522.top/?p=89
+date: '2016-06-18 21:20:10 +0800'
+date_gmt: '2016-06-18 13:20:10 +0800'
+categories:
+- "服务器"
+tags: []
+comments: []
+---
+<p>在windows上搭建一个服务器环境，一般用WAMPSERVER即可，测试在windows上写好的php网页也有多种方法<br />
+一、仅改动apache默认站点路径<br />
+在【wamp路径】\bin\apache\apachex.x.x\conf里找到apache配置文件--httpd.conf,寻找documentroot<br />
+DocumentRoot "改为需要运行的网站路径"</p>
+<p>#<br />
+# Each directory to which Apache has access can be configured with respect<br />
+# to which services and features are allowed and/or disabled in that<br />
+# directory (and its subdirectories).<br />
+#<br />
+# First, we configure the "default" to be a very restrictive set of<br />
+# features.<br />
+#</p>
+<p>AllowOverride none<br />
+Require all denied</p>
+<p>#<br />
+# Note that from this point forward you must specifically allow<br />
+# particular features to be enabled - so if something's not working as<br />
+# you might expect, make sure that you have specifically enabled it<br />
+# below.<br />
+#</p>
+<p><Directory "改为需要运行的网站路径"><br />
+PS:不要在网站路径里出现中文！<br />
+二、配置单个站点或多个站点<br />
+单个站点<br />
+1.在【wamp路径】\wamp\bin\apache\apachex.x.x\conf\extra里找到httpd-vhosts.conf添加</p>
+<p>DocumentRoot "改为需要运行的网站路径"<br />
+ServerName 主机名，在网址栏中输入可以直接访问</p>
+<p>2.在【wamp路径】\bin\apache\apachex.x.x\conf里找到apache配置文件--httpd.conf,寻找onlineoffline，改为如下<br />
+# onlineoffline tag - don't remove<br />
+Order Deny,Allow<br />
+Allow from all<br />
+#允许从外部访问<br />
+Require all granted</p>
+<p>3.在【wamp路径】\bin\apache\apachex.x.x\conf里找到apache配置文件--httpd.conf,寻找httpd-vhosts.conf，引用该文件<br />
+# Virtual hosts<br />
+#Include conf/extra/httpd-vhosts.conf<br />
+改为<br />
+# Virtual hosts<br />
+Include conf/extra/httpd-vhosts.conf<br />
+4.在C:\Windows\System32\drivers\etc中找到HOSTS文件，编辑<br />
+最后面添加<br />
+127.0.0.1 想要在网址栏中直接访问的主机名<br />
+多个站点<br />
+跟单个站点差不多，只是第一步和最后一步里添加相应站点信息<br />
+PS:可能会出现You don't have permission to access / on this server<br />
+为此我的解决方法是，把localhost作为一个"站点"添加。。</p>

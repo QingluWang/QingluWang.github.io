@@ -1,0 +1,65 @@
+---
+layout: post
+status: publish
+published: true
+title: Linux网络配置基础
+author:
+  display_name: Garlic
+  login: wangqinglu
+  email: 1119543546@qq.com
+  url: ''
+author_login: wangqinglu
+author_email: 1119543546@qq.com
+wordpress_id: 41
+wordpress_url: http://120.27.125.145/?p=41
+date: '2016-03-03 23:24:08 +0800'
+date_gmt: '2016-03-03 15:24:08 +0800'
+categories:
+- Linux
+tags: []
+comments: []
+---
+<p>我是在虚拟机里跑的centos7，此处以它为例进行网络基础配置</p>
+<p>在linux环境下，进行网络配置有4种方式:</p>
+<p>1.ifconfig命令临时配置网络</p>
+<p>2.setup界面配置网络</p>
+<p>3.修改网络配置文件</p>
+<p>4.图形界面配置网络</p>
+<p>&nbsp;</p>
+<p>1.ifconfig命令临时配置网络</p>
+<p>举个例子，除本地网卡lo外，还有一块网卡eth0</p>
+<p>临时配置ip地址和子网掩码：</p>
+<p>ifconfig eth0 192.168.1.103 netmask 255.255.255.0</p>
+<p>2.setup界面配置网络</p>
+<p>setup这个工具，红帽专有，Debian系貌似无法使用</p>
+<p>运行命令setup就会进入setup界面配置网络</p>
+<p>PS：</p>
+<p>如果是centos最小化安装，那么是没有setup的，需要自己进行安装</p>
+<p>yum -y install setuptool</p>
+<p>yum &nbsp;install ntsysv</p>
+<p>yum install iptables</p>
+<p>yum install system-config-network-tui</p>
+<p>yum install system-config-securitylevel-tui</p>
+<p><img class="alignnone size-full wp-image-42" src="http://120.27.125.145/wp-content/uploads/2016/03/setup.png" alt="setup" width="290" height="103" /></p>
+<p>!3.修改网络配置文件【对所有linux发行版本适用，只不过文件位置不尽相同。。】</p>
+<p>1]网卡信息文件</p>
+<p>&nbsp;</p>
+<p>vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<p><img class="alignnone wp-image-43" src="http://120.27.125.145/wp-content/uploads/2016/03/Linux网卡信息文件-300x149.png" alt="Linux网卡信息文件" width="519" height="258" /></p>
+<p>TYPE:一般是以太网，即Ethernet</p>
+<p>BOOTPROTO:指定方式来获取ip地址，此处有三种：static、none、dhcp</p>
+<p>static和none是手动分配ip，dhcp是自动分配ip,前提是局域网内有dhcp服务器</p>
+<p>PS:</p>
+<p>DHCP--动态主机配置协议，给内部网络或网络服务供应商自动分配ip地址</p>
+<p>ONBOOT:表示网卡etho会不会随网络服务的启动而启动</p>
+<p>【用setup配置完网络之后，记得修改此文件，把ONBOOT=no改为ONBOOT=yes】</p>
+<p>2]主机名文件</p>
+<p>centos7里是用hostnametl这个工具和/etc/hosts进行主机名更改</p>
+<p>centos6里是更改/etc/sysconfig/network</p>
+<p>3]配置DNS</p>
+<p>vi /etc/reslov.conf</p>
+<p>将nameserver--域名服务器ip修改</p>
+<p>4.图形界面配置网络</p>
+<p>在linux图形界面下，配置网络其实跟在win操作系统下差不多。。</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>

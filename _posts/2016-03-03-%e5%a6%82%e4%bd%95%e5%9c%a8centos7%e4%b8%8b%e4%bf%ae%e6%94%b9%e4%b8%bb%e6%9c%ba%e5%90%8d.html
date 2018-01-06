@@ -1,0 +1,31 @@
+---
+layout: post
+status: publish
+published: true
+title: Centos7修改主机名
+author:
+  display_name: Garlic
+  login: wangqinglu
+  email: 1119543546@qq.com
+  url: ''
+author_login: wangqinglu
+author_email: 1119543546@qq.com
+wordpress_id: 48
+wordpress_url: http://120.27.125.145/?p=48
+date: '2016-03-03 23:37:05 +0800'
+date_gmt: '2016-03-03 15:37:05 +0800'
+categories:
+- Linux
+tags: []
+comments: []
+---
+<p>输入hostname命令，就会显示当前主机的主机名</p>
+<p>那么问题来了，在centos6下，只修改/etc/sysconfig/network文件即可，但是对于centos7貌似</p>
+<p>行不通。。</p>
+<p>在CentOS中，有三种定义的主机名:静态的（static），瞬态的（transient），和灵活的（pretty）。&ldquo;静态&rdquo;主机名也称为内核主机名，是系统在启动时从/etc/hostname自动初始化的主机名。&ldquo;瞬态&rdquo;主机名是在系统运行时临时分配的主机名，例如，通过DHCP或mDNS服务器分配。静态主机名和瞬态主机名都遵从作为互联网域名同样的字符限制规则。而另一方面，&ldquo;灵活&rdquo;主机名则允许使用自由形式（包括特殊/空白字符）的主机名，以展示给终端用户（如Linux）。</p>
+<p>在CentOS 7中，有个叫hostnamectl的命令行工具，它允许你查看或修改与主机名相关的配置</p>
+<p>只查看静态、瞬态或灵活主机名，分别使用&ldquo;--static&rdquo;，&ldquo;--transient&rdquo;或&ldquo;--pretty&rdquo;选项</p>
+<p>要同时修改所有三个主机名：静态、瞬态和灵活主机名：</p>
+<p>hostnamectl set-hostname Linux</p>
+<p>一旦修改了静态主机名，/etc/hostname 将被自动更新。然而，/etc/hosts 不会更新以保存所做的修改，所以你每次在修改主机名后一定要手动更新/etc/hosts，之后再重启CentOS 7。否则系统再启动时会很慢。</p>
+<p>vi /etc/hosts</p>
