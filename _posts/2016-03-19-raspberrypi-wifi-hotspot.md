@@ -1,15 +1,18 @@
 ---
-layout	:	post
-title	:	RaspberryPi制作无线路由器
+layout: post
+title: RaspberryPi制作无线路由器
 ---
 ## 环境
+
 <blockquote>
 树莓派<br>
 USB无线网卡<br>
 网线<br>
 超级终端（XShell、Putty等）
 </blockquote>
+
 ## 过程
+
 ### 1.配置网络环境:
 
 #### 1.准备工作
@@ -36,16 +39,17 @@ udhcp服务的接口，设为wlan0网卡接口
 
 配置dns(opt dns)、子网掩码(opt subnet)、路由地址(opt router)、十天内DHCP以秒为单位的租约时间(opt lease 86400)
 </blockquote>
+
 #### 5.配置无线网卡部分信息
 
 `sudo vim  /etc/network/interfaces`
 
 允许一个无线网卡wlan0热插拔，即*allow-hotplug  wlan0*,然后把无线网卡的IP地址设为静态且固定的。
 
-
 #### 6.配置hostapd.conf文件
 
 `sudo vim /etc/hostapd/hostapd.conf`
+
 <blockquote>
 ssid–wifi	热点名称<br><br>
 wpa_passphrasse	wifi热点密码<br><br>

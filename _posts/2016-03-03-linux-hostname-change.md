@@ -3,6 +3,7 @@ layout	:	post
 title	:	Centos7下修改主机名
 ---
 ## 环境
+
 >Centos7
 
 ## 主机名

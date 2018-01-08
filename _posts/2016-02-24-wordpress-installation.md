@@ -3,6 +3,7 @@ layout	:	post
 title	:	wordpress安装
 ---
 ## 1、优点
+
 快速、方便、可定制化高
 
 ## 2、条件

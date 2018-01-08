@@ -3,9 +3,11 @@ layout	:	post
 title	:	Linux网络配置
 ---
 ## 环境
+
 >Centos7
 
 ##	概述
+
 在Linux环境下，进行网络配置有4种方式:
 
 <blockquote>	
@@ -19,6 +21,7 @@ title	:	Linux网络配置
 </blockquote>
  
 ## 详情
+
 ### 1.ifconfig命令临时配置网络
 
 举个例子，除本地网卡lo外，还有一块网卡eth0
@@ -68,11 +71,13 @@ static和none是手动分配ip，dhcp是自动分配ip,前提是局域网内有d
 *用setup配置完网络之后，记得修改此文件，把ONBOOT=no改为ONBOOT=yes*
 
 #### 2.主机名文件
+
 <blockquote>
 Centos7里是用hostnametl这个工具和/etc/hosts进行主机名更改
 
 Centos6里是更改/etc/sysconfig/network
 </blockquote>
+
 #### 3.配置DNS
 
 `vi /etc/reslov.conf`

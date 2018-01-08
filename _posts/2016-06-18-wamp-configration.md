@@ -3,10 +3,12 @@ layout	:	post
 title	:	wamp多站点配置
 ---
 ## 环境
->windows
+
+>windows<br>
 >wampserver
 
 ## 过程
+
 ### 1.仅改动apache默认站点路径
 在【wamp路径】\bin\apache\apachex.x.x\conf里找到apache配置文件–httpd.conf,寻找documentroot
 DocumentRoot “改为需要运行的网站路径”
