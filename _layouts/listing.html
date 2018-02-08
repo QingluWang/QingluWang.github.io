@@ -1,7 +1,11 @@
 ---
 layout: default
 ---
-
+<div style="position:relative">
+  <div style="position:absolute;left:0;right:0;text-align:center;">
+      <div id="particles-js"></div>
+    </div>
+</div>
 {% if page.collection %}
   {% assign page_type = 'listing' %}
   {% assign item_type = 'posts' %}
@@ -25,8 +29,8 @@ layout: default
   {% assign pool = paginator.posts %}
 
 {% endif %}
-
 <main class="{{ item_type }} {{ item_type }}--{{ page_type }}" role="main">
+  
   <h2 class="{{ item_type }}__heading {{ item_type }}--{{ page_type }}__heading">{{ page.title }}</h2>
 
   <ul class="{{ item_type }}__list {{ item_type }}--{{ page_type }}__list">
@@ -47,5 +51,4 @@ layout: default
     {% endfor %}
   </ul>
 </main>
-
 {{ content }}
