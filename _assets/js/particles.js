@@ -7,11 +7,6 @@
 /* v2.0.0
 /* ----------------------------------------------- */
 
-window.onload = function(){
-  if(!IsPC()){
-    document.getElementById("canvasAnimaion").style.display = "none";
-  }
-}
 function IsPC() {
   var userAgentInfo = navigator.userAgent;
   var Agents = ["Android", "iPhone",
@@ -25,6 +20,11 @@ function IsPC() {
      }
   }
   return flag;
+}
+window.onload = function(){
+  if(!IsPC()){
+    document.getElementById("canvasAnimaion").style.display = "none";
+  }
 }
 var GetDisplayHeight = function(){
   var bodyHeight = document.getElementsByTagName("body")[0].scrollHeight;
