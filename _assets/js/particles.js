@@ -7,6 +7,25 @@
 /* v2.0.0
 /* ----------------------------------------------- */
 
+window.onload = function(){
+  if(!IsPC()){
+    document.getElementById("canvasAnimaion").style.display = "none";
+  }
+}
+function IsPC() {
+  var userAgentInfo = navigator.userAgent;
+  var Agents = ["Android", "iPhone",
+     "SymbianOS", "Windows Phone",
+     "iPad", "iPod"];
+  var flag = true;
+  for (var v = 0; v < Agents.length; v++) {
+     if (userAgentInfo.indexOf(Agents[v]) > 0) {
+        flag = false;
+        break;
+     }
+  }
+  return flag;
+}
 var GetDisplayHeight = function(){
   var bodyHeight = document.getElementsByTagName("body")[0].scrollHeight;
   var headerHeight = document.getElementsByTagName("header")[0].scrollHeight;
