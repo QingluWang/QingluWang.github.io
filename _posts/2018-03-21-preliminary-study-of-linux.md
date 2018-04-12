@@ -1,6 +1,6 @@
 ---
 layout	:	post
-title	:	初探Linux(九)--进程
+title	:	Linux进程小结
 ---
 
 ## 概述
@@ -52,7 +52,8 @@ Linux通过PCB记录及管理进程。
 &nbsp;&nbsp;pid\_t fork(void)<br>
 头文件：sys/types.h、unistd.h<br>
 挂起进程：<br>
-&nbsp;&nbsp;unsigned int sleep(unsigned int sec)、pid_t wait(int \*status)、pid\_t waitpid(pid\_t pid, int \*status,int options)<br>
+&nbsp;&nbsp;unsigned int sleep(unsigned int sec)、pid_t wait(int \*status)、pid\_t waitpid(pid\_t pid, int \*status,
+int options)<br>
 头文件：unistd.h、sys/types.h、sys/wait.h<br>
 结束进程：<br>
 &nbsp;&nbsp;void exit(int value)、void _exit(int value)<br>
