@@ -87,7 +87,7 @@ var pJS = function(tag_id, params){
         out_mode: 'out',
         bounce: false,
         attract: {
-          enable: false,
+          enable: true,
           rotateX: 3000,
           rotateY: 3000
         }
